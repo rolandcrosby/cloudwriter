@@ -13,33 +13,31 @@
       -webkit-filter: blur(0);
     }
     100% {
-      -webkit-filter: blur(30px);
+      -webkit-filter: blur(20px);
     }
   }
   
-  #letters div {
-    font-family: DCCCloud;
-    color: #fff;
-    line-height: 0.8;
-    -webkit-filter: blur(30px);
-    -webkit-animation-name: cloud-blur;
-    -webkit-animation-duration: 120s;
+  #letters {
+  }
+  #letters div, #letters span {
+    -webkit-filter: blur(20px);
+    -webkit-animation-duration: 60s;
     -webkit-animation-iteration-count: 1;
   }
   html {height: 100%;}
   body {
-    width: 100%;
-    height: 100%;
     margin: 0;
-    padding: 0;
+    padding: 5%;
     background-image: radial-gradient(circle farthest-corner at right bottom, #A3C5D9 0%, #4F81D6 100%);
   }
   #letters {
     position: absolute;
     height: 90%;
     width: 90%;
-    margin: 5%;
     text-align: center;
+    font-family: DCCCloud;
+    color: #fff;
+    line-height: 0.8;
   }
 </style>
 <script>
@@ -54,6 +52,7 @@
   }
   function addLetter(el, index) {
     if (index < el.childNodes.length) {
+      el.childNodes[index].style.webkitAnimationName = "cloud-blur";
       el.childNodes[index].style.visibility = "visible";
       if (index + 1 < el.childNodes.length) {
         setTimeout(function() {addLetter(el, index + 1);}, 500);
@@ -86,9 +85,9 @@
     size = fit(letters, el, size);
     setTimeout(function() {
       fit(letters, el, size);
-      el.removeChild(el.firstChild);
+      letters.removeChild(el);
       letters.style.visibility = "visible";
-      makeLetters(el, message);
+      makeLetters(letters, message);
     }, 100);
   }
 </script>
