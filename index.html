@@ -59,7 +59,7 @@
     }
   }
   window.onload = function() {
-    var message = window.location.search.substring(1);
+    var message = decodeURIComponent(window.location.search.substring(1));
     if (message == "") {
       message = "you're basic";
     }
