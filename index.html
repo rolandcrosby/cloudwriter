@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  @font-face {
+    /* "DCC Cloud" font from http://www.dafont.com/dcc-cloud.font */
+    font-family: 'DCCCloud';
+    src: url('dcccloud.otf') format('opentype');
+  }
+
+  @-webkit-keyframes cloud-blur {
+    0% {
+      -webkit-filter: blur(0);
+    }
+    100% {
+      -webkit-filter: blur(30px);
+    }
+  }
+  
+  #message {
+    font-family: DCCCloud;
+    text-align: center;
+    margin-top: 100px;
+    color: #fff;
+    font-size: 15em;
+    -webkit-filter: blur(10px);
+    -webkit-animation-name: cloud-blur;
+    -webkit-animation-duration: 60s;
+  }
+  html {height: 100%;}
+  body {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle farthest-corner at right bottom, #A3C5D9 0%, #4F81D6 100%);
+  }
+</style>
+</head>
+<body>
+  <div id="message">YOU'RE BASIC</div>
+</body>
+</html>
