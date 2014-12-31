@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>LOOK! UP IN THE SKY!</title>
 <style>
   @font-face {
     /* "DCC Cloud" font from http://www.dafont.com/dcc-cloud.font */
@@ -17,8 +18,6 @@
     }
   }
   
-  #letters {
-  }
   #letters div, #letters span {
     -webkit-filter: blur(20px);
     -webkit-animation-duration: 60s;
@@ -52,8 +51,9 @@
   }
   function addLetter(el, index) {
     if (index < el.childNodes.length) {
-      el.childNodes[index].style.webkitAnimationName = "cloud-blur";
-      el.childNodes[index].style.visibility = "visible";
+      var letter = el.childNodes[index];
+      letter.style.webkitAnimationName = "cloud-blur";
+      letter.style.visibility = "visible";
       if (index + 1 < el.childNodes.length) {
         setTimeout(function() {addLetter(el, index + 1);}, 500);
       }
@@ -84,7 +84,7 @@
     letters.appendChild(el);
     size = fit(letters, el, size);
     setTimeout(function() {
-      fit(letters, el, size);
+      var finalSize = fit(letters, el, size);
       letters.removeChild(el);
       letters.style.visibility = "visible";
       makeLetters(letters, message);
